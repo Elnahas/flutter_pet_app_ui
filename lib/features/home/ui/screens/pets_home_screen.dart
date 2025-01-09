@@ -31,6 +31,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
            const SizedBox(height: 5),
           headerParts(),
           const SizedBox(height: 20),
+            joinNow(),
         ],
       )),
     );
@@ -119,4 +120,107 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
       ),
     );
   }
+
+  Padding joinNow() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          height: 180,
+          width: double.infinity,
+          color: blueBackground,
+          child: Stack(
+            children: [
+              Positioned(
+                bottom: -20,
+                right: -30,
+                width: 100,
+                height: 100,
+                child: Transform.rotate(
+                  angle: 12,
+                  child: Image.network(
+                    "https://clipart-library.com/images/rTnrpap6c.png",
+                    color: pawColor2,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -35,
+                left: -15,
+                width: 100,
+                height: 100,
+                child: Transform.rotate(
+                  angle: -12,
+                  child: Image.network(
+                    "https://clipart-library.com/images/rTnrpap6c.png",
+                    color: pawColor2,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -40,
+                left: 120,
+                width: 110,
+                height: 110,
+                child: Transform.rotate(
+                  angle: -16,
+                  child: Image.network(
+                    "https://clipart-library.com/images/rTnrpap6c.png",
+                    color: pawColor2,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                right: 20,
+                height: 170,
+                child: Image.asset(
+                  "assets/images/cat1.png",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Join Our Animal\nLovers Community",
+                      style: TextStyle(
+                        fontSize: 18,
+                        height: 1.1,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 8,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.amberAccent),
+                      child: const Text(
+                        "Join Now",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
 }
