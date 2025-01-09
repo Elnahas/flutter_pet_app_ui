@@ -32,6 +32,8 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           headerParts(),
           const SizedBox(height: 20),
             joinNow(),
+                        const SizedBox(height: 30),
+            categoryViewAll("Categories"),
         ],
       )),
     );
@@ -218,6 +220,49 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Padding categoryViewAll(name) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          Text(
+            name,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: black,
+            ),
+          ),
+          const Spacer(),
+          Row(
+            children: [
+              const Text(
+                "View All",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.amber,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Container(
+                padding: const EdgeInsetsDirectional.all(3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.amber,
+                ),
+                child: const Icon(
+                  Icons.keyboard_arrow_right_rounded,
+                  size: 14,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
