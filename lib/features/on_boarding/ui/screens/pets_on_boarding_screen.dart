@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pet_app_ui/core/data/model/onboards_model.dart';
 import 'package:flutter_pet_app_ui/core/utils/const.dart';
 
+import '../../../../core/theming/app_colors.dart';
 import '../../../home/ui/screens/pets_home_screen.dart';
 
 class PetsOnBoardingScreen extends StatefulWidget {
@@ -60,7 +61,7 @@ class _PetsOnBoardingScreenState extends State<PetsOnBoardingScreen> {
                   width: size.width * 0.6,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: buttonColor),
+                      color: AppColors.buttonColor),
                   child: Center(
                       child: Text(
                     currentIndex == onBoardData.length - 1
@@ -102,7 +103,7 @@ class _PetsOnBoardingScreenState extends State<PetsOnBoardingScreen> {
                   child: Container(
                     height: 240,
                     width: size.width * 0.9,
-                    color: orangeContainer,
+                    color: AppColors.orangeContainer,
                     child: Stack(
                       children: [
                         Positioned(
@@ -114,7 +115,7 @@ class _PetsOnBoardingScreenState extends State<PetsOnBoardingScreen> {
                               angle: -11,
                               child: Image.network(
                                 "https://clipart-library.com/images/rTnrpap6c.png",
-                                color: pawColor1,
+                                color: AppColors.pawColor1,
                               ),
                             )),
                         Positioned(
@@ -126,7 +127,7 @@ class _PetsOnBoardingScreenState extends State<PetsOnBoardingScreen> {
                               angle: -13,
                               child: Image.network(
                                 "https://clipart-library.com/images/rTnrpap6c.png",
-                                color: pawColor1,
+                                color: AppColors.pawColor1,
                               ),
                             ))
                       ],
@@ -189,7 +190,7 @@ class _PetsOnBoardingScreenState extends State<PetsOnBoardingScreen> {
       margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: currentIndex == index ? Colors.orange : black.withOpacity(0.2),
+        color: currentIndex == index ? Colors.orange : AppColors.black.withOpacity(0.2),
       ),
     );
   }

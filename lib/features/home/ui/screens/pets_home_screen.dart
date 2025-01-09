@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/data/model/cats_model.dart';
+import '../../../../core/theming/app_colors.dart';
 import '../../../../core/utils/const.dart';
 import '../../../pets_detail/ui/widgets/pets_detail_screen.dart';
 
@@ -48,8 +49,8 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                           icons[index],
                           size: 30,
                           color: selectedIndex == index
-                              ? blue
-                              : black.withOpacity(0.6),
+                              ? AppColors.blue
+                              : AppColors.black.withOpacity(0.6),
                         ),
                         const SizedBox(height: 5),
                         selectedIndex == index
@@ -58,7 +59,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                                 width: 5,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: blue,
+                                  color: AppColors.blue,
                                 ),
                               )
                             : Container(),
@@ -72,7 +73,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                               padding: const EdgeInsets.all(5),
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: buttonColor,
+                                color: AppColors.buttonColor,
                               ),
                               child: const Text(
                                 "4",
@@ -195,7 +196,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                               cat.name,
                               style: const TextStyle(
                                 fontSize: 20,
-                                color: black,
+                                color: AppColors.black,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -203,7 +204,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                               children: [
                                 const Icon(
                                   Icons.location_on_outlined,
-                                  color: blue,
+                                  color: AppColors.blue,
                                   size: 18,
                                 ),
                                 Text(
@@ -224,7 +225,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                           cat.fav
                               ? Icons.favorite_rounded
                               : Icons.favorite_outline_rounded,
-                          color: cat.fav ? Colors.red : black.withOpacity(0.6),
+                          color: cat.fav ? Colors.red : AppColors.black.withOpacity(0.6),
                         ),
                       ),
                     ],
@@ -269,14 +270,14 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: selectedCategory == index
-                        ? buttonColor
+                        ? AppColors.buttonColor
                         : Colors.black12.withOpacity(0.03),
                   ),
                   child: Text(
                     categories[index],
                     style: TextStyle(
                       fontSize: 16,
-                      color: selectedCategory == index ? Colors.white : black,
+                      color: selectedCategory == index ? Colors.white : AppColors.black,
                     ),
                   ),
                 ),
@@ -299,13 +300,13 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                 "Location",
                 style: TextStyle(
                   fontSize: 16,
-                  color: black.withOpacity(0.6),
+                  color: AppColors.black.withOpacity(0.6),
                 ),
               ),
               const SizedBox(width: 5),
               const Icon(
                 Icons.keyboard_arrow_down_rounded,
-                color: blue,
+                color: AppColors.blue,
                 size: 18,
               ),
             ],
@@ -318,7 +319,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: black,
+                    color: AppColors.black,
                   ),
                   children: [
                     TextSpan(
@@ -380,7 +381,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
         child: Container(
           height: 180,
           width: double.infinity,
-          color: blueBackground,
+          color: AppColors.blueBackground,
           child: Stack(
             children: [
               Positioned(
@@ -392,7 +393,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   angle: 12,
                   child: Image.network(
                     "https://clipart-library.com/images/rTnrpap6c.png",
-                    color: pawColor2,
+                    color: AppColors.pawColor2,
                   ),
                 ),
               ),
@@ -405,7 +406,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   angle: -12,
                   child: Image.network(
                     "https://clipart-library.com/images/rTnrpap6c.png",
-                    color: pawColor2,
+                    color: AppColors.pawColor2,
                   ),
                 ),
               ),
@@ -418,7 +419,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   angle: -16,
                   child: Image.network(
                     "https://clipart-library.com/images/rTnrpap6c.png",
-                    color: pawColor2,
+                    color: AppColors.pawColor2,
                   ),
                 ),
               ),
@@ -483,7 +484,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: black,
+              color: AppColors.black,
             ),
           ),
           const Spacer(),

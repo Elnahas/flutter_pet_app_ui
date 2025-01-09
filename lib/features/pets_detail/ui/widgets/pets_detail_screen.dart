@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../core/data/model/cats_model.dart';
+import '../../../../core/theming/app_colors.dart';
 import '../../../../core/utils/const.dart';
 
 class PetsDetailScreen extends StatefulWidget {
@@ -53,20 +54,20 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           moreInfo(
-                            color1,
-                            color1.withOpacity(0.5),
+                            AppColors.color1,
+                            AppColors.color1.withOpacity(0.5),
                             widget.cat.sex,
                             "Sex",
                           ),
                           moreInfo(
-                            color2,
-                            color2.withOpacity(0.5),
+                            AppColors.color2,
+                            AppColors.color2.withOpacity(0.5),
                             "${widget.cat.age.toString()} Years",
                             "Age",
                           ),
                           moreInfo(
-                            color3,
-                            color3.withOpacity(0.5),
+                            AppColors.color3,
+                            AppColors.color3.withOpacity(0.5),
                             "${widget.cat.weight.toString()} KG",
                             "Weight",
                           ),
@@ -96,7 +97,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                         height: 70,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: buttonColor,
+                          color: AppColors.buttonColor,
                         ),
                         child: const Center(
                           child: Text(
@@ -141,7 +142,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                                 widget.cat.owner.name,
                                 style: const TextStyle(
                                   fontSize: 18,
-                                  color: black,
+                                  color: AppColors.black,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -158,7 +159,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                         Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: color3.withOpacity(0.3),
+                            color: AppColors.color3.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Icon(
@@ -195,7 +196,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                                 widget.cat.name,
                                 style: const TextStyle(
                                   fontSize: 25,
-                                  color: black,
+                                  color: AppColors.black,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -203,12 +204,12 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                                 children: [
                                   const Icon(
                                     Icons.location_on_outlined,
-                                    color: blue,
+                                    color: AppColors.blue,
                                   ),
                                   Text(
                                     '${widget.cat.location} (${widget.cat.distance} Km)',
                                     style: TextStyle(
-                                      color: black.withOpacity(0.6),
+                                      color: AppColors.black.withOpacity(0.6),
                                       fontSize: 16,
                                     ),
                                   ),
@@ -228,7 +229,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                                 offset: const Offset(0, 3),
                                 color: widget.cat.fav
                                     ? Colors.red.withOpacity(0.1)
-                                    : black.withOpacity(0.2),
+                                    : AppColors.black.withOpacity(0.2),
                                 blurRadius: 2,
                                 spreadRadius: 1,
                               )
@@ -240,7 +241,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                                 : Icons.favorite_border_rounded,
                             color: widget.cat.fav
                                 ? Colors.red
-                                : black.withOpacity(0.6),
+                                : AppColors.black.withOpacity(0.6),
                           ),
                         ),
                       ],
@@ -267,7 +268,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                   },
                   child: const Icon(
                     Icons.arrow_back_ios_rounded,
-                    color: black,
+                    color: AppColors.black,
                   ),
                 ),
               ),
@@ -278,7 +279,7 @@ class _PetsDetailScreenState extends State<PetsDetailScreen> {
                     color: Colors.white),
                 child: const Icon(
                   Icons.more_horiz,
-                  color: black,
+                  color: AppColors.black,
                 ),
               ),
             ],
