@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/utils/const.dart';
 
 class PetsHomeScreen extends StatefulWidget {
@@ -34,8 +35,60 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
             joinNow(),
                         const SizedBox(height: 30),
             categoryViewAll("Categories"),
+                        const SizedBox(height: 25),
+            categoryItems(),
         ],
       )),
+    );
+  }
+
+    SingleChildScrollView categoryItems() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          const SizedBox(width: 20),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.black12.withOpacity(0.03),
+            ),
+            child: const Icon(Icons.tune_rounded),
+          ),
+          ...List.generate(
+            categories.length,
+            (index) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {});
+                  selectedCategory = index;
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 18,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: selectedCategory == index
+                        ? buttonColor
+                        : Colors.black12.withOpacity(0.03),
+                  ),
+                  child: Text(
+                    categories[index],
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: selectedCategory == index ? Colors.white : black,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
