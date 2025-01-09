@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/utils/const.dart';
+import '../../../pets_detail/ui/widgets/pets_detail_screen.dart';
 
 class PetsHomeScreen extends StatefulWidget {
   const PetsHomeScreen({super.key});
@@ -25,20 +26,215 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+            bottomNavigationBar: Container(
+        height: 60,
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: List.generate(
+            icons.length,
+            (index) => GestureDetector(
+              onTap: () {},
+              child: Container(
+                height: 60,
+                width: 50,
+                padding: const EdgeInsets.all(5),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Column(
+                      children: [
+                        Icon(
+                          icons[index],
+                          size: 30,
+                          color: selectedIndex == index
+                              ? blue
+                              : black.withOpacity(0.6),
+                        ),
+                        const SizedBox(height: 5),
+                        selectedIndex == index
+                            ? Container(
+                                height: 5,
+                                width: 5,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: blue,
+                                ),
+                              )
+                            : Container(),
+                      ],
+                    ),
+                    index == 2
+                        ? Positioned(
+                            right: 0,
+                            top: -10,
+                            child: Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: buttonColor,
+                              ),
+                              child: const Text(
+                                "4",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          )
+                        : Container()
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Column(
-        children: [
-           const SizedBox(height: 5),
-          headerParts(),
-          const SizedBox(height: 20),
-            joinNow(),
-                        const SizedBox(height: 30),
-            categoryViewAll("Categories"),
-                        const SizedBox(height: 25),
-            categoryItems(),
-        ],
-      )),
+          child: SingleChildScrollView(
+            child: Column(
+                    children: [
+             const SizedBox(height: 5),
+            headerParts(),
+            const SizedBox(height: 20),
+              joinNow(),
+                          const SizedBox(height: 30),
+              categoryViewAll("Categories"),
+                          const SizedBox(height: 25),
+              categoryItems(),
+                const SizedBox(height: 20),
+              categoryViewAll("Pets"),
+                          const SizedBox(height: 10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(cats.length, (index) {
+                    final cat = cats[index];
+                    return petsItems(size, cat);
+                  }),
+                ),
+              ),
+                    ],
+                  ),
+          )),
+    );
+  }
+
+
+  Padding petsItems(Size size, Cat cat) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => PetsDetailScreen(cat: cat),
+            ),
+          );
+        },
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: Container(
+            height: size.height * 0.3,
+            width: size.width * 0.55,
+            color: cat.color.withOpacity(0.5),
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: -10,
+                  right: -10,
+                  height: 100,
+                  width: 100,
+                  child: Transform.rotate(
+                    angle: 12,
+                    child: Image.network(
+                      "https://clipart-library.com/images/rTnrpap6c.png",
+                      color: cat.color,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 100,
+                  left: -25,
+                  height: 90,
+                  width: 90,
+                  child: Transform.rotate(
+                    angle: -11.5,
+                    child: Image.network(
+                      "https://clipart-library.com/images/rTnrpap6c.png",
+                      color: cat.color,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: -10,
+                  right: 10,
+                  child: Hero(
+                    tag: cat.image,
+                    child: Image.asset(
+                      cat.image,
+                      height: size.height * 0.23,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              cat.name,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                color: black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_on_outlined,
+                                  color: blue,
+                                  size: 18,
+                                ),
+                                Text(
+                                  "${cat.distance} km",
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black54,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          cat.fav
+                              ? Icons.favorite_rounded
+                              : Icons.favorite_outline_rounded,
+                          color: cat.fav ? Colors.red : black.withOpacity(0.6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 
