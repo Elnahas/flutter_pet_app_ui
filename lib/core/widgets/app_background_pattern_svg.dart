@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class RotatedSvgIcon extends StatelessWidget {
+class AppBackgroundPatternSvg extends StatelessWidget {
   final String assetPath; 
   final double angle;
   final double size; 
@@ -11,7 +11,7 @@ class RotatedSvgIcon extends StatelessWidget {
   final double? right;
   final Color? color;
 
-  const RotatedSvgIcon({
+  const AppBackgroundPatternSvg({
     super.key,
     required this.assetPath,
     required this.angle,

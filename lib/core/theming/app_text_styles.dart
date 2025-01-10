@@ -27,6 +27,18 @@ abstract class AppTextStyles {
   );
 
 
+  static  TextStyle font30BoldBlack = TextStyle(
+    fontSize: 25.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontFamily: "Poppins",
+  );
 
+  static  TextStyle font14NormalWhite = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+    fontFamily: "Poppins",
+  );
   
 }

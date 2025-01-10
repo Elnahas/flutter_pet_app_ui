@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pet_app_ui/features/on_boarding/ui/widgets/rotated_svg_icon.dart';
+import 'package:flutter_pet_app_ui/core/widgets/app_background_pattern_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_assets.dart';
@@ -20,7 +20,7 @@ class PatternBackgroundWidget extends StatelessWidget {
           color: AppColors.orangeContainer,
           child: const Stack(
             children: [
-              RotatedSvgIcon(
+              AppBackgroundPatternSvg(
                 assetPath: AppAssets.pawPrint,
                 angle: -11,
                 size: 170,
@@ -28,7 +28,7 @@ class PatternBackgroundWidget extends StatelessWidget {
                 left: -40,
                 color: AppColors.pawColor1,
               ),
-              RotatedSvgIcon(
+              AppBackgroundPatternSvg(
                 assetPath: AppAssets.pawPrint,
                 angle: -13,
                 size: 150,
