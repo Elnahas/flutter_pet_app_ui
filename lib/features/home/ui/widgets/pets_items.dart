@@ -6,13 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/helpers/app_assets.dart';
 import '../../../../core/theming/app_colors.dart';
-import '../../../pets_detail/ui/widgets/pets_detail_screen.dart';
+import '../../../pets_detail/ui/screens/pets_detail_screen.dart';
 
 class PetsItems extends StatelessWidget {
-  final Size size;
   final Cat cat;
 
-  const PetsItems({super.key, required this.size, required this.cat});
+  const PetsItems({super.key, required this.cat});
 
   @override
   Widget build(BuildContext context) {

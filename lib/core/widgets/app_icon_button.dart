@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppIconButton extends StatelessWidget {
   final IconData icon;
   final bool showBadge;
+  final Color? backgroundColor;
+  final Color? iconColor;
   final VoidCallback onPressed;
 
   const AppIconButton({
@@ -10,6 +13,7 @@ class AppIconButton extends StatelessWidget {
     required this.icon,
     this.showBadge = false,
     required this.onPressed,
+    this.backgroundColor, this.iconColor,
   });
 
   @override
@@ -18,11 +22,12 @@ class AppIconButton extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.black12.withOpacity(0.03),
+            color:backgroundColor?? Colors.black12.withOpacity(0.03),
             borderRadius: BorderRadius.circular(12),
           ),
           child: IconButton(
-            icon: Icon(icon),
+            color: iconColor ?? Colors.black54,
+            icon: Icon(icon ),
             onPressed: onPressed,
           ),
         ),
@@ -31,8 +36,8 @@ class AppIconButton extends StatelessWidget {
             right: 5,
             top: 5,
             child: Container(
-              height: 7,
-              width: 7,
+              height: 7.h,
+              width: 7.w,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.red,
