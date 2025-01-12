@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pet_app_ui/core/widgets/app_background_pattern_svg.dart';
 import 'package:flutter_pet_app_ui/core/widgets/app_favorite_circle_avatar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/helpers/app_assets.dart';
@@ -9,7 +10,7 @@ import '../../../../core/theming/app_colors.dart';
 import '../../../pets_detail/ui/screens/pets_detail_screen.dart';
 
 class PetsItems extends StatelessWidget {
-  final Cat cat;
+  final CatModel cat;
 
   const PetsItems({super.key, required this.cat});
 
@@ -19,11 +20,11 @@ class PetsItems extends StatelessWidget {
       padding: const EdgeInsetsDirectional.only(start: 20, bottom: 20),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
+          PersistentNavBarNavigator.pushNewScreen(
             context,
-            MaterialPageRoute(
-              builder: (_) => PetsDetailScreen(cat: cat),
-            ),
+            screen: PetsDetailScreen(cat: cat),
+            withNavBar: false, 
+            pageTransitionAnimation: PageTransitionAnimation.fade,
           );
         },
         child: ClipRRect(

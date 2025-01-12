@@ -6,7 +6,7 @@ import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/helpers/app_assets.dart';
 
 class ItemsImageAndBackground extends StatelessWidget {
-  final Cat cat;
+  final CatModel cat;
 
   const ItemsImageAndBackground({super.key, 
     required this.cat,

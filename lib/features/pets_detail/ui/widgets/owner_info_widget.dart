@@ -6,7 +6,7 @@ import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/theming/app_colors.dart';
 
 class OwnerInfoWidget extends StatelessWidget {
-  final Cat cat;
+  final CatModel cat;
 
   const OwnerInfoWidget({super.key, required this.cat});
 

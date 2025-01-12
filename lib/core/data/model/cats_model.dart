@@ -6,7 +6,7 @@ List<String> categories = [
   'Fishs',
 ];
 
-class Cat {
+class CatModel {
   final Color color;
   final String name, location, sex, image, description;
   final double age, weight;
@@ -14,7 +14,7 @@ class Cat {
   final bool fav;
   final Owner owner;
 
-  Cat({
+  CatModel({
     required this.fav,
     required this.image,
     required this.color,
@@ -29,8 +29,8 @@ class Cat {
   });
 }
 
-List<Cat> cats = [
-  Cat(
+List<CatModel> cats = [
+  CatModel(
     fav: true,
     color: const Color(0xffffd690),
     name: 'Amber',
@@ -43,7 +43,7 @@ List<Cat> cats = [
     distance: 5,
     owner: owners[0],
   ),
-  Cat(
+  CatModel(
     fav: false,
     color: const Color(0xffcaeda1),
     name: 'Kitty',
@@ -56,7 +56,7 @@ List<Cat> cats = [
     distance: 7,
     owner: owners[1],
   ),
-  Cat(
+  CatModel(
     fav: true,
     color: const Color(0xffa4e1ff),
     name: 'Cleo',
@@ -69,7 +69,7 @@ List<Cat> cats = [
     distance: 7,
     owner: owners[2],
   ),
-  Cat(
+  CatModel(
     fav: true,
     color: const Color(0xfffa9191),
     image: 'assets/images/cat5.png',
@@ -82,7 +82,7 @@ List<Cat> cats = [
     distance: 11,
     owner: owners[0],
   ),
-  Cat(
+  CatModel(
     fav: false,
     color: const Color(0xffffd690),
     name: 'Leo',

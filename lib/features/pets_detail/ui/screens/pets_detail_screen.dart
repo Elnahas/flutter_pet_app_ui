@@ -9,7 +9,7 @@ import '../../../../core/data/model/cats_model.dart';
 import '../../../../core/theming/app_colors.dart';
 
 class PetsDetailScreen extends StatefulWidget {
-  final Cat cat;
+  final CatModel cat;
   const PetsDetailScreen({super.key, required this.cat});
 
   @override

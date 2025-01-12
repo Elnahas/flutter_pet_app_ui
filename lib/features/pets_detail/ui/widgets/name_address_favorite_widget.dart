@@ -5,7 +5,7 @@ import '../../../../core/theming/app_colors.dart';
 import '../../../../core/widgets/app_favorite_circle_avatar.dart';
 
 class NameAddressAndFavoriteWidget extends StatelessWidget {
-  final Cat cat;
+  final CatModel cat;
 
   const NameAddressAndFavoriteWidget({super.key, required this.cat});
 

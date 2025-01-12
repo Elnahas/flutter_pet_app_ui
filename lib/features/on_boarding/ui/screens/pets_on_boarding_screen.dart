@@ -3,6 +3,7 @@ import 'package:flutter_pet_app_ui/core/data/model/onboards_model.dart';
 import 'package:flutter_pet_app_ui/core/helpers/spacing.dart';
 import 'package:flutter_pet_app_ui/core/theming/app_colors.dart';
 import 'package:flutter_pet_app_ui/core/widgets/app_text_button.dart';
+import 'package:flutter_pet_app_ui/features/home/home_navbar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../home/ui/screens/pets_home_screen.dart';
@@ -53,7 +54,7 @@ class _PetsOnBoardingScreenState extends State<PetsOnBoardingScreen> {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const PetsHomeScreen(),
+                      builder: (_) => const HomeNavBar(),
                     ),
                     (route) => false,
                   );
